@@ -1,16 +1,16 @@
 package project1;
 
-public class Graph1 {
+public class Graph1 implements Comparable {
 		  int u;
 		  int v;
 		  int w;
 		  
-		  public Graph1 (int u, int v, int w) {
+		  public Graph1(int u, int v, int w) {
 		    this.u=u;
 		    this.v=v;
 		   this.w=w;
 		  }
-		  
+		  @Override
 		  public String toString() {
 		    return "(" + u + ",w=" + w + ")";
 		  }
@@ -40,6 +40,15 @@ public class Graph1 {
 		public void setW(int w) {
 			this.w = w;
 		}
+		@Override
+		public int compareTo(Object o) {
+			int compareage=((Graph1)o).getW();
+	        /* For Ascending order*/
+	        return this.w-compareage;
+		}
+		
+
+		
 		
 		}
 
