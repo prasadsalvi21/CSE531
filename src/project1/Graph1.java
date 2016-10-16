@@ -12,7 +12,7 @@ public class Graph1 implements Comparable {
 		  }
 		  @Override
 		  public String toString() {
-		    return "(" + u + ",w=" + w + ")";
+		    return "(u="+u+",v="+v+",w="+w+")";
 		  }
 
 	
