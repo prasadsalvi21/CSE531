@@ -82,6 +82,7 @@ public class PrimsAlgo
 				u=g.get(i).getU();
 				v=g.get(i).getV();
 				w=g.get(i).getW();
+				min[u]=0;
 				parent[u]=u;
 				child[u]=u;
 				while(!allVisited(visited))
@@ -141,7 +142,7 @@ public class PrimsAlgo
 				}
 				System.out.println("The output of Prims Algorithm:");
 				System.out.println("u\tv\tw");
-				for(i=2;i<=n;i++)
+				for(i=1;i<=n;i++)
 				{
 						System.out.println(parent[i]+"\t"+child[i]+"\t"+min[i]);
 						sum=sum+min[i];
