@@ -16,7 +16,8 @@ public class PrimsAlgoNonHeap
 		int nl=0;
 		try
 		{
-			Path filePath = Paths.get("input.txt");
+			long startTime = System.currentTimeMillis();
+			Path filePath = Paths.get("test3.txt");
 			Scanner src = new Scanner(filePath);
 			n=src.nextInt();
 			m=src.nextInt();
@@ -99,8 +100,8 @@ public class PrimsAlgoNonHeap
 					}
 					}
 					Collections.sort(g1);
-					for(Graph1 g11:g1)
-						System.out.print(g11);
+					/*for(Graph1 g11:g1)
+						System.out.print(g11);*/
 					u1=g1.get(0).getU();
 					v1=g1.get(0).getV();
 					w1=g1.get(0).getW();					
@@ -111,7 +112,7 @@ public class PrimsAlgoNonHeap
 						min[v1]=w1;
 						
 					}
-					System.out.println("\nCount="+count+" Visited of "+u1+" ="+visited[u1]+" u="+u1+" v="+v1+" Min="+min[v1]+" Parent="+parent[v1]+" Child="+child[v1]);
+					//System.out.println("\nCount="+count+" Visited of "+u1+" ="+visited[u1]+" u="+u1+" v="+v1+" Min="+min[v1]+" Parent="+parent[v1]+" Child="+child[v1]);
 					g1.remove(0);
 					if(g1.isEmpty())
 					break;					
@@ -161,6 +162,10 @@ public class PrimsAlgoNonHeap
 				}
 				 writer.flush();
 			     writer.close();
+			     long stopTime = System.currentTimeMillis();
+			      long elapsedTime = stopTime - startTime;
+			      long seconds = (elapsedTime / 100);
+			      System.out.println("Total Time taken in milliseconds = "+elapsedTime);
 			}
 		}
 		catch(Exception e)
