@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.nio.file.*;
 import java.util.*;
 
-public class PrimsAlgo
+public class PrimsAlgoNonHeap
 {
 	@SuppressWarnings({ "resource", "unchecked" })
 	public static void main(String[] args)
@@ -16,7 +16,7 @@ public class PrimsAlgo
 		int nl=0;
 		try
 		{
-			Path filePath = Paths.get("test5.txt");
+			Path filePath = Paths.get("input.txt");
 			Scanner src = new Scanner(filePath);
 			n=src.nextInt();
 			m=src.nextInt();
@@ -99,8 +99,8 @@ public class PrimsAlgo
 					}
 					}
 					Collections.sort(g1);
-					/*for(Graph1 g11:g1)
-						System.out.print(g11);*/
+					for(Graph1 g11:g1)
+						System.out.print(g11);
 					u1=g1.get(0).getU();
 					v1=g1.get(0).getV();
 					w1=g1.get(0).getW();					
@@ -111,7 +111,7 @@ public class PrimsAlgo
 						min[v1]=w1;
 						
 					}
-					//System.out.println("\nCount="+count+" Visited of "+u1+" ="+visited[u1]+" u="+u1+" v="+v1+" Min="+min[v1]+" Parent="+parent[v1]+" Child="+child[v1]);
+					System.out.println("\nCount="+count+" Visited of "+u1+" ="+visited[u1]+" u="+u1+" v="+v1+" Min="+min[v1]+" Parent="+parent[v1]+" Child="+child[v1]);
 					g1.remove(0);
 					if(g1.isEmpty())
 					break;					
