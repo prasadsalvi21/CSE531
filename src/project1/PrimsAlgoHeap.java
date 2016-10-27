@@ -5,6 +5,59 @@ import java.io.FileWriter;
 import java.nio.file.*;
 import java.util.*;
 
+class Graph1 implements Comparable {
+		  int u;
+		  int v;
+		  int w;
+		  
+		  public Graph1(int u, int v, int w) {
+		    this.u=u;
+		    this.v=v;
+		   this.w=w;
+		  }
+		  @Override
+		  public String toString() {
+		    return "(u="+u+",v="+v+",w="+w+")";
+		  }
+
+	
+
+		public int getU() {
+			return u;
+		}
+
+		public void setU(int u) {
+			this.u = u;
+		}
+
+		public int getV() {
+			return v;
+		}
+
+		public void setV(int v) {
+			this.v = v;
+		}
+
+		public int getW() {
+			return w;
+		}
+
+		public void setW(int w) {
+			this.w = w;
+		}
+		@Override
+		public int compareTo(Object o) {
+			int compareage=((Graph1)o).getW();
+	        /* For Ascending order*/
+	        return this.w-compareage;
+		}
+		
+
+		
+		
+		}
+
+
 public class PrimsAlgoHeap
 {
 	public static int n=0,m=0,u=0,v=0,w=0,temp=0,sum=0,s=0,i=0;
@@ -19,7 +72,7 @@ public class PrimsAlgoHeap
 		try
 		{
 			long startTime = System.currentTimeMillis();
-			Path filePath = Paths.get("test1.txt");
+			Path filePath = Paths.get("input.txt");
 			Scanner src = new Scanner(filePath);
 			n=src.nextInt();
 			m=src.nextInt();
@@ -150,7 +203,7 @@ public class PrimsAlgoHeap
 				}
 				System.out.println("Weighted sum="+sum);
 				
-				File file = new File("Output.txt");
+				File file = new File("output.txt");
 				file.createNewFile();
 				FileWriter writer = new FileWriter(file); 
 				writer.write(new Integer(sum).toString());
