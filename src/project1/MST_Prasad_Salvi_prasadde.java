@@ -85,7 +85,7 @@ public class MST_Prasad_Salvi_prasadde {
 				child[i1] = 0;
 			}
 
-			if (n > 10000 || m > 10000 || n < 1 || m < 1) {
+			if (n > 10000 || m > 100000 || n < 1 || m < 1) {
 				System.out
 						.println("Invalid graph entries present in input file");
 			} else {
@@ -95,7 +95,7 @@ public class MST_Prasad_Salvi_prasadde {
 					if (src.hasNextInt()) {
 						u = src.nextInt();
 						v = src.nextInt();
-						if (u >= v || v > n || u < 1 || v < 1) {
+						if (v > n || u < 1 || v < 1) {
 							System.out
 									.println("\nVertices (u,v) of graph should be 1 <= u < v <= n");
 							break;
@@ -129,11 +129,12 @@ public class MST_Prasad_Salvi_prasadde {
 				s = 0;
 				for (int i3 = 1; i3 <= n; i3++)
 					insertHeap(i3, key[i3]);
-
+				
+				
 				visited[0] = true;
 				while (!allVisited(visited)) {
 					u = extractMin();
-					// System.out.println("Start exporing Node u="+u);
+					//System.out.println("Start exploring Node u="+u);
 
 					for (int d = 1; d <= n; d++) {
 						if (visited[d] == false) {
@@ -146,42 +147,23 @@ public class MST_Prasad_Salvi_prasadde {
 									child[v] = v;
 									key[v] = g.get(z).getW();
 									decreaseKey(v, key[v]);
-									// System.out.println("z="+z+" Visited of "+u+" ="+visited[d]+" u="+u+" v="+v+" Key="+key[d]+" Parent="+parent[d]+" Child="+child[d]);
+									//System.out.println("z="+z+" Visited of "+u+" ="+visited[d]+" u="+u+" v="+v+" Key="+key[d]+" Parent="+parent[d]+" Child="+child[d]);
 
 								}
 							}
 						}
 						visited[u] = true;
 
-						// for(int k=1;k<=n;k++)
-						// System.out.println("d="+d+" k="+k+" a["+k+"]="+a[k]+" p["+k+"]="+p[k]+" Parent="+parent[k]+" Child="+child[k]+" key["+k+"]="+key[k]+" Visited["+k+"]="+visited[k]);
+						//for(int k=1;k<=n;k++)
+						//System.out.println("d="+d+" k="+k+" a["+k+"]="+a[k]+" p["+k+"]="+p[k]+" Parent="+parent[k]+" Child="+child[k]+" key["+k+"]="+key[k]+" Visited["+k+"]="+visited[k]);
+						//System.out.println();
 					}
-					// System.out.println("Exploring of Node u= "+u+" is completed");
+					//System.out.println("Exploring of Node u= "+u+" is completed");
 				}
 				System.out
 						.println("=============================================");
 
-				// For arranging the output vertices in the order of
-				// u={1,2,...n} bubble sort
-				for (int i10 = 1; i10 <= n; i10++) {
-					for (int j = 1; j <= (n - i10); j++)
-						if (parent[j] > parent[j + 1]) {
-							temp = parent[j];
-							parent[j] = parent[j + 1];
-							parent[j + 1] = temp;
-							temp = child[j];
-							child[j] = child[j + 1];
-							child[j + 1] = temp;
-							boolean temp1 = visited[j];
-							visited[j] = visited[j + 1];
-							visited[j + 1] = temp1;
-							temp = key[j];
-							key[j] = key[j + 1];
-							key[j + 1] = temp;
-
-						}
-
-				}
+				
 				System.out.println("The output of Prims Algorithm:");
 				System.out.println("u\tv\tw");
 				for (int i8 = 2; i8 <= n; i8++) {
