@@ -1,4 +1,3 @@
-package project2;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -82,7 +81,8 @@ public class LCS_Prasad_Salvi_prasadde {
 					
 			}
 			op=op.reverse();
-			System.out.println("Output= "+op+" length= "+op.length());
+			System.out.println("length= "+op.length());
+			System.out.println("Output= "+op);
 			
 			File file = new File("output.txt");
 			file.createNewFile();
@@ -92,6 +92,11 @@ public class LCS_Prasad_Salvi_prasadde {
 			writer.append(op);
 			writer.flush();
 			writer.close();
+			long stopTime = System.currentTimeMillis();
+			long elapsedTime = stopTime - startTime;
+			// long seconds = (elapsedTime / 100);
+			System.out.println("Total Time taken for program execution = "
+					+ elapsedTime + " msec.");
 			
 		}
 		catch(Exception e)
