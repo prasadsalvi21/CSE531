@@ -101,11 +101,11 @@ public class MST_Prasad_Salvi_prasadde {
 							break;
 						}
 						w = src.nextInt();
-						if (w > 1000000 || w < 1) {
+						/*if (w > 1000000 || w < 1) {
 							System.out
-									.println("\nWight (w) of graph in input file should be 1 <= w <= 10^6");
-							break;
-						}
+									.println("\nWight (w) of graph in input file should be 1 <= w <= 10^6"+w);
+							break;*/
+						//}
 						g.add(new Graph1(u, v, w));
 						g.add(new Graph1(v, u, w));
 					} else
